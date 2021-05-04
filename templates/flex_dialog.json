@@ -1,0 +1,54 @@
+{
+  "type": "bubble",
+  "body": {
+    "type": "box",
+    "layout": "vertical",
+    "contents": [
+      {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "text",
+            "text": "距離を選択",
+            "style": "normal",
+            "weight": "regular"
+          }
+        ]
+      },
+      {
+        "type": "box",
+        "layout": "horizontal",
+        "contents": [
+          {
+            "type": "button",
+            "action": {
+              "type": "postback",
+              "label": "1km",
+              "data": "distance=1",
+              "displayText": "1km"
+            }
+          },
+          {
+            "type": "button",
+            "action": {
+              "type": "postback",
+              "label": "2km",
+              "data": "distance=2",
+              "displayText": "2km"
+            }
+          },
+          {
+            "type": "button",
+            "action": {
+              "type": "postback",
+              "label": "3km",
+              "data": "distance=3",
+              "displayText": "3km"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

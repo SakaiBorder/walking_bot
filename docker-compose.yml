@@ -1,0 +1,30 @@
+version: "3"
+volumes:
+    build:
+services:
+    app:
+        build: ./build/docker/golang/
+        tty: true
+        ports: 
+            - "8000:8000"
+        volumes:
+            - ./:/go/app/src
+            - build:/go/app/src/build
+        links:
+            - "db:database"
+        command: air
+    db:
+        image: mysql:5.7
+        container_name: "walking-mysql"
+        ports:
+            - 43306:3306
+        restart: always
+        volumes:
+            - ./build/docker/mysql-data:/var/lib/mysql
+        environment:
+            MYSQL_DATABASE: walking-db
+            MYSQL_USER: walking-user
+            MYSQL_PASSWORD: secret
+            MYSQL_ROOT_PASSWORD: root
+            TZ: "Asia/Tokyo"
+        command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_bin
